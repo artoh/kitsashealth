@@ -2,7 +2,7 @@ name: Cloudserver
 
 on:
   schedule:
-    - cron : '*/15 6-23 * * *'
+    - cron : '*/30 6-22 * * *'
 
 jobs:
   check_heath_job:
