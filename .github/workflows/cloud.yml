@@ -1,0 +1,13 @@
+name: Cloudserver
+
+on:
+  schedule:
+    - cron : '*/15 6-23 * * *'
+
+jobs:
+  check_heath_job:
+    runs-on: ubuntu-18.04
+    steps:
+      - name: Wget health
+        run: |
+          wget -f https://pilvi.kitsas.fi/cloud/health 
