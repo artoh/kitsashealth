@@ -10,4 +10,11 @@ jobs:
     steps:
       - name: Wget health
         run: |
-          wget -f https://pilvi.kitsas.fi/cloud/health 
+          curl -f https://pilvi.kitsas.fi/cloud/health 
+      - name: Telegram connection
+        uses: yanzay/notify-telegram@v0.1.0
+        if: ${{ failure() }}
+        with:
+          chat: ${{ secrets.chat }} # user id or channel name secret
+          token: ${{ secrets.token }} # token secret
+          status: ${{ job.status }} # do not modify this line
